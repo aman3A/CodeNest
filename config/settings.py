@@ -23,16 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-local-development-only")
+SECRET_KEY = "jdfjh83483rhh83u84uri349#flkg3flklfkfo0dlklc00999909@@@$$$$@fkj0900000009238298az3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "True").lower() in {"true", "1", "yes"}
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    host.strip()
-    for host in os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
-    if host.strip()
-]
+ALLOWED_HOSTS = ['CodeNest.onrender.com']
 
 
 # Application definition
