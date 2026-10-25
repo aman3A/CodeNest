@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load posts_extras %}
+{% block title %}{{ post.title }} — The Practical Stack{% endblock %}
+{% block content %}
+<article class="post-page">
+  <a class="back-link" href="{% url 'core:home' %}">← Back to all articles</a>
+  <header class="post-header">
+    {% if post.category %}<p class="eyebrow">{{ post.category.name }}</p>{% else %}<p class="eyebrow">FIELD NOTES</p>{% endif %}
+    <h1>{{ post.title }}</h1>
+    {% if post.excerpt %}<p class="post-deck">{{ post.excerpt }}</p>{% endif %}
+    <div class="post-byline"><span>By {{ post.author.get_full_name|default:post.author.username }}</span><span aria-hidden="true">·</span><time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"F j, Y" }}</time></div>
+  </header>
+  {% if post.cover_image %}<img class="post-cover" src="{{ post.cover_image.url }}" alt="">{% endif %}
+  <div class="prose">{{ post.content|safe_rich_text }}</div>
+  {% if post.tags.all %}<footer class="post-tags"><span>Filed under</span>{% for tag in post.tags.all %}<span class="tag-chip">{{ tag.name }}</span>{% endfor %}</footer>{% endif %}
+</article>
+{% endblock %}

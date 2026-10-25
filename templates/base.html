@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practical tutorials on Python, software engineering, and AI.">
+  <title>{% block title %}The Practical Stack{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  <script src="{% static 'js/site.js' %}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{% url 'core:home' %}"><span class="brand-mark">P</span> The Practical Stack</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <a href="{% url 'core:home' %}">Articles</a>
+        <a href="/admin/">Admin</a>
+        {% if user.is_authenticated %}<span class="nav-user">{{ user.username }}</span><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="text-button" type="submit">Log out</button></form>{% else %}<a href="{% url 'login' %}">Log in</a>{% endif %}
+      </nav>
+    </div>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><div class="footer-inner"><span>Thoughtful notes for people who build with code.</span><span>© {% now "Y" %} The Practical Stack</span></div></footer>
+</body>
+</html>

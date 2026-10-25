@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Log in — The Practical Stack{% endblock %}
+{% block content %}
+<section class="auth-wrap"><p class="eyebrow">Welcome back</p><h1>Log in</h1><form method="post" class="auth-form">{% csrf_token %}{{ form.as_p }}{% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}<button class="button button-dark" type="submit">Log in</button></form></section>
+{% endblock %}
