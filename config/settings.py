@@ -28,7 +28,7 @@ SECRET_KEY = "jdfjh83483rhh83u84uri349#flkg3flklfkfo0dlklc00999909@@@$$$$@fkj090
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['CodeNest.onrender.com']
+ALLOWED_HOSTS = ["codenest-cpsi.onrender.com"]
 
 
 # Application definition
