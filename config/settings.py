@@ -29,7 +29,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-local-development-onl
 DEBUG = False
 
 ALLOWED_HOSTS = ["codenest-7u18.onrender.com"]
-
 # Application definition
 
 INSTALLED_APPS = [
