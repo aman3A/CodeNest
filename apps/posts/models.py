@@ -7,10 +7,13 @@ from taggit.managers import TaggableManager
 
 RICH_TEXT_TAGS = {
 	"a", "blockquote", "br", "code", "del", "div", "em", "h2", "h3",
-	"h4", "hr", "i", "li", "ol", "p", "pre", "s", "span", "strong",
-	"sub", "sup", "u", "ul",
+	"h4", "hr", "i", "img", "li", "ol", "p", "pre", "s", "span",
+	"strong", "sub", "sup", "u", "ul",
 }
-RICH_TEXT_ATTRIBUTES = {"a": {"href", "title"}}
+RICH_TEXT_ATTRIBUTES = {
+	"a": {"href", "title"},
+	"img": {"alt", "src", "title"},
+}
 
 
 def clean_rich_text(value):
