@@ -12,6 +12,14 @@ class BlogPageTests(TestCase):
 			username="writer", password="test-password-123"
 		)
 
+	def test_logout_redirects_to_homepage(self):
+		user = get_user_model().objects.create_user(username="reader")
+		self.client.force_login(user)
+
+		response = self.client.post(reverse("logout"))
+
+		self.assertRedirects(response, reverse("core:home"))
+
 	def test_homepage_lists_published_posts_only(self):
 		published = Post.objects.create(
 			title="Published Python guide",
